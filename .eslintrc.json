@@ -37,7 +37,7 @@
     "react/require-default-props": "off",
     "import/prefer-default-export": "off",
     "@typescript-eslint/consistent-type-imports": "error", // Coloca type em variaveis de tipagem
-    "camelcase": "warn",
+    "camelcase": "off",
     "no-shadow": "off", // Impede de criar variáveis em dois lugares, ex: dentro e fora de uma func
     "@typescript-eslint/no-shadow": ["error"],
     "react/jsx-no-bind": [

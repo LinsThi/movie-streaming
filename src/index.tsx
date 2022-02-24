@@ -1,10 +1,17 @@
+import { useFonts, Roboto_500Medium } from '@expo-google-fonts/roboto';
+import AppLoading from 'expo-app-loading';
 import React from 'react';
-import { Text, View } from 'react-native';
+
+import { RootStack } from './routes';
 
 export default function App() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Ola</Text>
-    </View>
-  );
+  const [fontsLoaded] = useFonts({
+    Roboto_500Medium,
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+
+  return <RootStack />;
 }
