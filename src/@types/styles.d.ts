@@ -1,3 +1,5 @@
+import 'styled-components';
+
 type ColorProps = {
   PRIMARY: string;
   WHITE: string;

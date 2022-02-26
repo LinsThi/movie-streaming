@@ -1,5 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -12,7 +13,8 @@ const StackNavigation = createStackNavigator();
 
 export function RootStack() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: theme.Colors.BLACK }}>
+      <StatusBar hidden />
       <NavigationContainer>
         <StackNavigation.Navigator
           screenOptions={{
