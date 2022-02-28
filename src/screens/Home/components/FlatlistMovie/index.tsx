@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useCallback, useRef } from 'react';
 import { Animated } from 'react-native';
 
@@ -16,13 +17,18 @@ type FlatListProps = {
 };
 
 export function FlatlistMovie() {
+  const navigation = useNavigation();
   const newSeasonScrollX = useRef(new Animated.Value(0)).current;
   const dotPosition = Animated.divide(newSeasonScrollX, theme.Sizes.WIDTH);
 
   const renderMovie = useCallback(({ item }: FlatListProps) => {
     return (
       <Sty.ContainerItem>
-        <Sty.ButtonWithoutFeedback>
+        <Sty.ButtonWithoutFeedback
+          onPress={() =>
+            navigation.navigate('MovieDetail', { movieSelected: item })
+          }
+        >
           <Sty.ImageBackground
             source={item.thumbnail}
             resizeMode="cover"

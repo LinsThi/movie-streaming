@@ -4,7 +4,7 @@ export type ProfileDTO = {
 };
 
 export type DetailsDTO = {
-  image: string;
+  image: any;
   age: string;
   genre: string;
   ratings: number;
