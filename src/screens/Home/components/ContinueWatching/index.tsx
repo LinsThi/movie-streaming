@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 
 import { ProgressBar } from '~/components/ProgressBar';
@@ -10,6 +11,8 @@ import dummyData from '../../utils/mock';
 import * as Sty from './styles';
 
 export function ContinueWatching() {
+  const navigation = useNavigation();
+
   return (
     <Sty.Container>
       <Sty.ContainerHeader>
@@ -31,7 +34,11 @@ export function ContinueWatching() {
         keyExtractor={(_, index) => index.toString()}
         renderItem={({ item, index }) => {
           return (
-            <Sty.ButtonMovie>
+            <Sty.ButtonMovie
+              onPress={() =>
+                navigation.navigate('MovieDetail', { movieSelected: item })
+              }
+            >
               <Sty.ContainerMovie
                 style={{
                   marginLeft: index === 0 ? theme.Sizes.PADDING : 20,
