@@ -21,49 +21,52 @@ export function FlatlistMovie() {
   const newSeasonScrollX = useRef(new Animated.Value(0)).current;
   const dotPosition = Animated.divide(newSeasonScrollX, theme.Sizes.WIDTH);
 
-  const renderMovie = useCallback(({ item }: FlatListProps) => {
-    return (
-      <Sty.ContainerItem>
-        <Sty.ButtonWithoutFeedback
-          onPress={() =>
-            navigation.navigate('MovieDetail', { movieSelected: item })
-          }
-        >
-          <Sty.ImageBackground
-            source={item.thumbnail}
-            resizeMode="cover"
-            imageStyle={{
-              borderRadius: 40,
-            }}
+  const renderMovie = useCallback(
+    ({ item }: FlatListProps) => {
+      return (
+        <Sty.ContainerItem>
+          <Sty.ButtonWithoutFeedback
+            onPress={() =>
+              navigation.navigate('MovieDetail', { movieSelected: item })
+            }
           >
-            <Sty.ContainerInfo>
-              <Sty.ContainerPlay>
-                <Sty.ContainerPlayIcon>
-                  <Sty.Image
-                    source={play}
-                    resizeMode="contain"
-                    style={{
-                      tintColor: theme.Colors.WHITE,
-                    }}
-                  />
-                </Sty.ContainerPlayIcon>
+            <Sty.ImageBackground
+              source={item.thumbnail}
+              resizeMode="cover"
+              imageStyle={{
+                borderRadius: 40,
+              }}
+            >
+              <Sty.ContainerInfo>
+                <Sty.ContainerPlay>
+                  <Sty.ContainerPlayIcon>
+                    <Sty.Image
+                      source={play}
+                      resizeMode="contain"
+                      style={{
+                        tintColor: theme.Colors.WHITE,
+                      }}
+                    />
+                  </Sty.ContainerPlayIcon>
 
-                <Sty.TextPlay>Play now</Sty.TextPlay>
-              </Sty.ContainerPlay>
+                  <Sty.TextPlay>Play now</Sty.TextPlay>
+                </Sty.ContainerPlay>
 
-              {item.stillWatching.length > 0 && (
-                <Sty.ContainerWatching>
-                  <Sty.TextWatching>Still Watching</Sty.TextWatching>
+                {item.stillWatching.length > 0 && (
+                  <Sty.ContainerWatching>
+                    <Sty.TextWatching>Still Watching</Sty.TextWatching>
 
-                  <Profiles profiles={item.stillWatching} />
-                </Sty.ContainerWatching>
-              )}
-            </Sty.ContainerInfo>
-          </Sty.ImageBackground>
-        </Sty.ButtonWithoutFeedback>
-      </Sty.ContainerItem>
-    );
-  }, []);
+                    <Profiles profiles={item.stillWatching} />
+                  </Sty.ContainerWatching>
+                )}
+              </Sty.ContainerInfo>
+            </Sty.ImageBackground>
+          </Sty.ButtonWithoutFeedback>
+        </Sty.ContainerItem>
+      );
+    },
+    [navigation],
+  );
 
   return (
     <Sty.Container>
@@ -121,7 +124,7 @@ export function FlatlistMovie() {
                 height: 6,
                 backgroundColor: dotColor,
               }}
-              key={`dot-${index}`}
+              key={`dot-${item.id}`}
             />
           );
         })}

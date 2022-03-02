@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { ContinueWatching } from './components/ContinueWatching';
-import { FlatlistMovie } from './components/FlatlistMovie';
-import { Header } from './components/Header';
+import { ContinueWatching } from '../components/ContinueWatching';
+import { FlatlistMovie } from '../components/FlatlistMovie';
+import { Header } from '../components/Header';
 
 import * as Sty from './styles';
 
