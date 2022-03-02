@@ -4,7 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { MovieDetail } from '~/screens/MovieDetail';
+import { MovieDetail } from '~/screens/MovieDetail/views/MovieDetail';
 import theme from '~/theme';
 
 import { BottomRoutes } from './bottomNavigation';
