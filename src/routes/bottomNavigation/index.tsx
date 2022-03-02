@@ -7,7 +7,7 @@ import home from '~/assets/icons/home.png';
 import playButton from '~/assets/icons/playButton.png';
 import profile from '~/assets/icons/profile.png';
 import search from '~/assets/icons/search.png';
-import { Home } from '~/screens/Home';
+import { Home } from '~/screens/Home/views';
 import theme from '~/theme';
 
 const BottomNavigation = createBottomTabNavigator();

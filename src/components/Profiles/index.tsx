@@ -29,7 +29,7 @@ export function Profiles({ profiles }: ProfilesProps) {
       {profiles.map((item, index) => {
         if (index <= 2) {
           return (
-            <Sty.ContainerArrayProfile>
+            <Sty.ContainerArrayProfile key={item.id}>
               <Sty.ProfileImage
                 source={item.profile}
                 resizeMode="cover"
@@ -38,6 +38,7 @@ export function Profiles({ profiles }: ProfilesProps) {
             </Sty.ContainerArrayProfile>
           );
         }
+        return null;
       })}
 
       <Sty.ProfilesQuantity>+{profiles.length - 3}</Sty.ProfilesQuantity>
